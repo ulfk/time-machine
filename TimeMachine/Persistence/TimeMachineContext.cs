@@ -15,4 +15,8 @@ public class TimeMachineContext : DbContext, ITimeMachineContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
         => options.UseSqlServer(ConfigFactory.GetConnectionString());
+
+    public TimeMachineContext(DbContextOptions<TimeMachineContext> options) : base(options)
+    {
+    }
 }
