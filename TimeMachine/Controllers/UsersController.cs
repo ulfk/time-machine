@@ -1,24 +1,23 @@
 using Microsoft.AspNetCore.Mvc;
 using TimeMachine.Persistence.Entities;
 
-namespace TimeMachine.Controllers
+namespace TimeMachine.Controllers;
+
+[ApiController]
+[Route("[controller]")]
+public class UsersController : Controller
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class UsersController : ControllerBase
+    private readonly ILogger<UsersController> _logger;
+
+    public UsersController(ILogger<UsersController> logger)
     {
-        private readonly ILogger<UsersController> _logger;
+        _logger = logger;
+    }
 
-        public UsersController(ILogger<UsersController> logger)
-        {
-            _logger = logger;
-        }
-
-        [HttpGet]
-        [Route("users")]
-        public IEnumerable<IEnumerable<User>> GetUsers()
-        {
-            throw new NotImplementedException();
-        }
+    [HttpGet]
+    [Route("users")]
+    public IEnumerable<IEnumerable<User>> GetUsers()
+    {
+        throw new NotImplementedException();
     }
 }
